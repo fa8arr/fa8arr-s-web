@@ -1,0 +1,157 @@
+:root {
+  --bg: #0f1b2d;
+  --bar: #1b2f4b;
+  --card: #172a43;
+  --track: #2a4161;
+  --accent: #ffb020;
+  --text: #eaf0f8;
+  --muted: #9fb2cc;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+/* 1: Header bar */
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  padding: 1.5rem clamp(1rem, 5vw, 3rem);
+  background: var(--bar);
+  border-bottom: 3px solid var(--accent);
+}
+
+.top-bar h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.top-bar p {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* 2: Progress meters */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1rem, 5vw, 3rem) 4rem;
+}
+
+main h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.hint {
+  margin: -1rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--track);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.card:hover,
+.card[open] {
+  border-color: var(--accent);
+}
+
+.card summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.card summary::-webkit-details-marker { display: none; }
+
+.card summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+/* The ring: a conic gradient filled up to --value percent */
+.meter {
+  width: 150px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, var(--card) 80%, transparent 82% 100%),
+    conic-gradient(var(--accent) calc(var(--value, 0) * 1%), var(--track) 0);
+}
+
+.pct {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.name {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.desc {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card summary::after {
+  content: "Show topics";
+  margin-top: 1rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.card[open] summary::after { content: "Hide topics"; }
+
+.topics {
+  list-style: none;
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--track);
+}
+
+.topics li {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  color: var(--muted);
+}
+
+.topics li::before { content: "\25CB"; }
+
+.topics li.done { color: var(--text); }
+
+.topics li.done::before {
+  content: "\2713";
+  color: var(--accent);
+  font-weight: 700;
+}
