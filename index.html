@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zulfaqar Ahmed | Cybersecurity Student</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <noscript><style>#intro{display:none}</style></noscript>
+</head>
+<body>
+
+  <!-- DMC5-style intro: video (muted) + Vergil audio -->
+  <div id="intro">
+    <video id="introVideo" src="videoplayback.mp4" muted playsinline preload="auto"></video>
+    <audio id="introAudio" src="vergil1.m4a" preload="auto"></audio>
+    <div class="shade"></div>
+    <div class="bar top"></div>
+    <div class="bar bottom"></div>
+    <div id="slash"></div>
+    <div id="stage" class="stage" aria-live="off"></div>
+    <div id="flash"></div>
+    <div id="prog"></div>
+    <button id="skip" type="button">Skip</button>
+    <button id="start" type="button">
+      <span class="who">Zulfaqar Ahmed</span>
+      <span class="press">Press any key</span>
+    </button>
+  </div>
+
+  <!-- 1: Name and university -->
+  <header class="top-bar">
+    <h1>Zulfaqar Ahmed</h1>
+    <p>Al-Ameen University</p>
+  </header>
+
+  <!-- 2: Progress meters -->
+  <main>
+    <h2>My cybersecurity progress</h2>
+    <p class="hint">Select a card to see its topics.</p>
+
+    <!--
+      HOW TO UPDATE: when you finish a topic, add class="done" to its <li>.
+      The percentage on each meter is worked out automatically.
+    -->
+    <section class="cards">
+
+      <details class="card">
+        <summary>
+          <span class="meter"><span class="pct">0%</span></span>
+          <span class="name">Python</span>
+          <span class="desc">Scripting and automation</span>
+        </summary>
+        <ul class="topics">
+          <li class="done">Syntax and variables</li>
+          <li class="done">Functions and loops</li>
+          <li class="done">File handling</li>
+          <li >Network programming with sockets</li>
+          <li>Writing security scripts</li>
+        </ul>
+      </details>
+
+      <details class="card">
+        <summary>
+          <span class="meter"><span class="pct">0%</span></span>
+          <span class="name">Networking</span>
+          <span class="desc">TCP/IP, protocols, and the OSI model</span>
+        </summary>
+        <ul class="topics">
+          <li class="done">OSI model</li>
+          <li class="done">TCP/IP and subnetting</li>
+          <li class="done">DNS and HTTP</li>
+          <li>Firewalls</li>
+          <li>Packet analysis with Wireshark</li>
+        </ul>
+      </details>
+
+      <details class="card">
+        <summary>
+          <span class="meter"><span class="pct">0%</span></span>
+          <span class="name">Linux</span>
+          <span class="desc">Command line and system security</span>
+        </summary>
+        <ul class="topics">
+          <li class="done">Command line basics</li>
+          <li>File permissions</li>
+          <li>Users and processes</li>
+          <li>Bash scripting</li>
+        </ul>
+      </details>
+
+    </section>
+  </main>
+
+</body>
+</html>
